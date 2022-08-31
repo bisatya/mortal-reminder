@@ -1,0 +1,23 @@
+html {
+    background-color: rgb(240, 240, 240);
+}
+
+#root {
+    max-width: 1600px;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.week {
+    display: inline-block;
+    width: 1rem;
+    height: .5rem;
+    border: 1px solid black;
+    margin: 3px 2px;
+    background-color: white;
+}
+
+.week.filled {
+    background-color: rgb(223, 5, 5);
+}
