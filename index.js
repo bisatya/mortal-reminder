@@ -1,9 +1,5 @@
 (function() {
-    var dob = '1994-02-28';
-    var lifespanYears = 72;
     var weeksInYear = 52;
-
-    var weeksEl = document.getElementById('weeks');
 
     function renderWeek(w, y, hasPast) {
         var el = document.createElement('div');
@@ -14,7 +10,7 @@
         return el;
     }
 
-    function renderWeeks() {
+    function renderWeeks(dob, lifespanYears, weeksEl) {
         var weeksAlive = dayjs().diff(dayjs(dob), 'week');
         var index = 0;
         for (var y = 0; y < lifespanYears; y++) {
@@ -26,6 +22,28 @@
         }
     }
 
-    renderWeeks();
+    function handleBtnClick() {
+        var dob = document.getElementById('input-dob').value;
+        var lifespanYears = document.getElementById('input-lifespan').value;
+        var weeksEl = document.getElementById('weeks');
+        weeksEl.innerHTML = '';
+    
+        if (!dob || !lifespanYears) {
+            weeksEl.classList.add('hidden');
+            return;
+        }
+    
+        weeksEl.classList.remove('hidden');
+        try {
+            renderWeeks(dob, parseInt(lifespanYears), weeksEl);
+        }
+        catch (err) {
+            alert('Invalid input');
+            throw err;
+        }
+    }
+
+    var btnEl = document.getElementById('btn-render');
+    btnEl.addEventListener('click', function() { handleBtnClick(); });
 
 })();

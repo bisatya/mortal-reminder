@@ -21,3 +21,7 @@ html {
 .week.filled {
     background-color: rgb(223, 5, 5);
 }
+
+.mb-3rem { margin-bottom: 3rem; }
+.mr-3rem { margin-right: 3rem; }
+.hidden { display: none; }
